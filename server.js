@@ -15,7 +15,7 @@ const resolvers = require('./graphql/resolvers')
 const handle = require('./handlers')
 const api = require('./routes/api')
 
-const db = process.env.NODE_ENV === "production" ? process.env.DATABASE : 'mongodb://localhost:27017/rickmorty-api'
+const db = process.env.NODE_ENV === "production" ? process.env.MONGODB_URI : 'mongodb://localhost:27017/rickmorty-api'
 
 const server = new ApolloServer({
   typeDefs,
