@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const path = require('path')
 const morgan = require('morgan')
+const helmet = require('helmet')
 const { ApolloServer } = require('apollo-server-express')
 
 const app = express()
@@ -15,7 +16,7 @@ const resolvers = require('./graphql/resolvers')
 const handle = require('./handlers')
 const api = require('./routes/api')
 
-const db = process.env.NODE_ENV === "production" ? process.env.MONGODB_URI : 'mongodb://localhost:27017/rickmorty-api'
+const db = process.env.MONGODB_URI || 'mongodb://localhost:27017/rickmorty-api'
 
 const server = new ApolloServer({
   typeDefs,
@@ -29,7 +30,7 @@ mongoose.Promise = global.Promise
 mongoose.set('useCreateIndex', true)
 
 mongoose.connection.on('error', err => {
-  console.error(`→ ${err.message}`)
+  console.error(`FATAL ERROR: MONGODB INSTANCE CONNECTION FAILED!\n→ ${err.message}`)
 })
 
 if (app.get('env') !== 'test') {
@@ -37,13 +38,15 @@ if (app.get('env') !== 'test') {
 }
 
 app.set('trust proxy', 1)
+// app.set('trust proxy', 'uniquelocal')
 
 app.use(express.static(path.join(__dirname, 'static')))
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-
+app.use(helmet())
 app.use('*', handle.limit)
+app.use('*', handle.detectApiUri)
 app.get('/', (req, res) => res.redirect('/api'))
 app.use('/api', api)
 

@@ -4,7 +4,7 @@ const router = express.Router()
 const { sanitizeQuery } = require('express-validator/filter')
 
 const { catchErrors } = require('../handlers/errors')
-const { site, collection } = require('../utils/helpers')
+const { collection } = require('../utils/helpers')
 
 const operations = require('../controllers/handleOperations')
 const { pagination, checkArray, showData, checkData } = require('./middlewares')
@@ -18,9 +18,9 @@ const hooks = {
 
 router.get('/', (req, res) => {
   res.json({
-    characters: `${site}/character`,
-    locations: `${site}/location`,
-    episodes: `${site}/episode`
+    characters: `${res.locals.apiBaseUri}/character`,
+    locations: `${res.locals.apiBaseUri}/location`,
+    episodes: `${res.locals.apiBaseUri}/episode`
   })
 })
 

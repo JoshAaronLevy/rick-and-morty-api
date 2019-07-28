@@ -55,12 +55,14 @@ You can check the code of the site [here](https://github.com/afuh/rick-and-morty
 This documentation will help you get familiar with the resources of the **Rick and Morty API** and show you how to make different queries, so that you can get the most out of it.
 
 ### Rate limit
-The **Rick and Morty API** is an open API, no authentication is required for use. Nonetheless, to prevent malicious usage of the API there is a limit on the number of requests a given IP address can make. This limit is 10000 requests per day. If you happen to hit the limit you'll receive a `429` status (Too Many Requests) on all your requests during a period of 12 hours.
+The **Rick and Morty API** is an open API, no authentication is required for use. Nonetheless, to prevent malicious usage of the API there is a limit on the number of requests a given IP address can make. This limit is 10000 requests per day. If you happen to hit the limit you'll receive a [`429` status](https://http.cat/429) (Too Many Requests) on all your requests during a period of 12 hours.
 
 ### GraphQL
-https://rickandmortyapi.com/graphql/   
+
+https://rickandmortyapi.com/graphql/
 
 *Sample query*
+
 ```graphql
 query {
   characters(page: 2, filter: { name: "rick" }) {
@@ -76,7 +78,7 @@ query {
   }
 }
 ```
-Check [here](#filter-characters) to know more about how to filter.   
+Check [here](#filter-characters) to know more about how to filter.
 > *New to GraphQL? check the docs [here](https://graphql.org/learn/)*
 
 ### REST
@@ -632,7 +634,7 @@ Available parameters:
 If you want to know how to use queries, check [here](#filter-characters)
 
 ## Libraries
-Here you will find a list of helper libraries to use the Rick and Morty API with your preferred language.   
+Here you will find a list of helper libraries to use the Rick and Morty API with your preferred language.
 
 #### Elixir
 - [ExShla - The Rick and Morty API Wrapper](https://github.com/l1h3r/ex_shla) by [l1h3r](https://github.com/l1h3r)
@@ -667,6 +669,8 @@ Assuming that [MongoDB](https://docs.mongodb.com/manual/tutorial/manage-mongodb-
 ```
 git clone https://github.com/afuh/rick-and-morty-api.git`
 cd rick-and-morty-api
+echo 'API_BASE_URI=http://localhost:8080/api' >> .env
+echo 'MONGODB_URI=mongodb://localhost:27017/rickmorty-api' >> .env
 npm install
 npm run data
 npm run dev

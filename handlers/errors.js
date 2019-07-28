@@ -8,6 +8,7 @@ exports.notFound = (req, res, next) => {
 
 /* eslint-disable no-unused-vars */
 exports.productionErrors = (err, req, res, next) => {
+  console.error('EXPRESS ERROR:', err)
   res.status(err.status || 500)
   res.json({ error: err.message })
 }

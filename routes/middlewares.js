@@ -1,4 +1,4 @@
-const { site, message, collection } = require('../utils/helpers')
+const { message, collection } = require('../utils/helpers')
 
 const pagination = (req, res, next) => {
   req.payload = {
@@ -31,7 +31,7 @@ const showData = (req, res) => {
     // if the query isn't undefined and it's an allowed query for the path
     if (req.query[key] && collection.queries[path].includes(key)) {
       // add it to the url
-      acc+= `&${key}=${req.query[key]}`
+      acc += `&${key}=${req.query[key]}`
     }
     return acc
   }, '')
@@ -41,8 +41,8 @@ const showData = (req, res) => {
     info: {
       count,
       pages,
-      next: `${page >= pages ? '' : `${site}${req.path}?page=${parseInt(page) + 1 }${qr}` }`,
-      prev: `${page < 2 ? '' : `${site}${req.path}?page=${parseInt(page) - 1 }${qr}` }`
+      next: `${page >= pages ? '' : `${res.locals.apiBaseUri}${req.path}?page=${parseInt(page, 10) + 1}${qr}`}`,
+      prev: `${page < 2 ? '' : `${res.locals.apiBaseUri}${req.path}?page=${parseInt(page, 10) - 1}${qr}`}`
     },
     results
   })
@@ -61,7 +61,7 @@ const checkArray = (req, res, next) => {
     }
   }
 
-  if ( id.includes(',') && !/\[|\]/.test(id) && id.length > 1 ) {
+  if (id.includes(',') && !/\[|\]/.test(id) && id.length > 1) {
     req.params.id = id.split(",").map(Number)
     return next()
   }
