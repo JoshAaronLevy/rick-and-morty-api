@@ -11,7 +11,8 @@
     "dev": "nodemon ./server.js",
     "data": "echo \"MongoURL: $MONGODB_URI\" && mongorestore --host=$MONGODB_URI --drop ./data",
     "test": "nyc --check-coverage --lines 95 mocha --timeout 10000 --exit && nyc report --reporter=text-lcov | coveralls",
-    "test:watch": "nodemon --ext js ./test --exec 'mocha --reporter min'"
+    "test:watch": "nodemon --ext js ./test --exec 'mocha --reporter min'",
+    "data:transform": "node data/apply-transforms.js"
   },
   "nyc": {
     "exclude": [
@@ -27,6 +28,7 @@
     "express-brute": "^1.0.1",
     "express-brute-mongoose": "^1.1.0",
     "express-validator": "^5.3.1",
+    "functional-promises": "^1.7.94",
     "graphql": "^14.3.1",
     "graphql-depth-limit": "^1.1.0",
     "helmet": "^3.20.0",

@@ -25,9 +25,8 @@ const server = new ApolloServer({
   validationRules: [ handle.depth(4) ]
 })
 
-mongoose.connect(db, { useNewUrlParser: true })
+mongoose.connect(db, { useNewUrlParser: true, useCreateIndex: true })
 mongoose.Promise = global.Promise
-mongoose.set('useCreateIndex', true)
 
 mongoose.connection.on('error', err => {
   console.error(`FATAL ERROR: MONGODB INSTANCE CONNECTION FAILED!\n→ ${err.message}`)
