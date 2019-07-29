@@ -32,7 +32,7 @@ episodeSchema.statics.structure = ch => {
     air_date,
     episode,
     characters,
-    url,
+    url: collection.updateToCurrentApiUrl(url),
     created
   })
 

@@ -61,7 +61,7 @@ characterSchema.statics.structure = ch => {
     location,
     image,
     episode,
-    url,
+    url: collection.updateToCurrentApiUrl(url),
     created
   })
 

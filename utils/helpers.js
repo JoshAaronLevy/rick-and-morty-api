@@ -1,4 +1,17 @@
 
+let apiBaseUri = 'https://rickandmortyapi.com/api'
+if (process.env.API_BASE_URI || process.env.API_BASE_URL) {
+  apiBaseUri = process.env.API_BASE_URI || process.env.API_BASE_URL
+}
+
+function updateToCurrentApiUrl(url) {
+  return url.replace(exports.config.sourceApiBaseUri, exports.config.apiBaseUri);
+}
+
+exports.config = {
+  sourceApiBaseUri: `https://rickandmortyapi.com/api`,
+  apiBaseUri
+}
 exports.message = {
   noPage: 'There is nothing here',
   noCharacter: 'Character not found',
@@ -9,6 +22,7 @@ exports.message = {
 }
 
 exports.collection = {
+  updateToCurrentApiUrl,
   exclude: '-_id -author -__v -edited',
   limit: 20,
   queries: {

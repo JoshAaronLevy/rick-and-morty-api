@@ -34,7 +34,7 @@ locationSchema.statics.structure = ch => {
     type,
     dimension,
     residents,
-    url,
+    url: collection.updateToCurrentApiUrl(url),
     created
   })
   return Array.isArray(ch) ? ch.map(ch => m(ch)) : m(ch)
