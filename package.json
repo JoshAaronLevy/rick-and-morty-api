@@ -23,6 +23,7 @@
   "license": "BSD-3-Clause",
   "dependencies": {
     "apollo-server-express": "^2.6.1",
+    "cors": "^2.8.5",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "express-brute": "^1.0.1",
@@ -31,7 +32,7 @@
     "functional-promises": "^1.7.94",
     "graphql": "^14.3.1",
     "graphql-depth-limit": "^1.1.0",
-    "helmet": "^3.20.0",
+    "helmet": "^3.21.1",
     "moment": "^2.24.0",
     "mongoose": "^5.5.13",
     "mongoose-mongodb-errors": "0.0.2",
