@@ -71,6 +71,6 @@ module.exports = app
 
 
 function debugHeadersWtf(req, res, next) {
-  console.log('Got CORS?', res.headers)
+  console.log('Got CORS?', res.getHeaders())
   next();
 }
