@@ -46,6 +46,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(helmet())
 app.use(cors({origin: true, credentials: true}))
+app.use(debugHeadersWtf)
 app.use('*', handle.limit)
 app.use('*', handle.detectApiUri)
 app.get('/', (req, res) => res.redirect('/api'))
@@ -67,3 +68,9 @@ app.listen(PORT, () => console.log('\x1b[34m%s\x1b[0m', `
 ))
 
 module.exports = app
+
+
+function debugHeadersWtf(req, res, next) {
+  console.log('Got CORS?', res.headers)
+  next();
+}
