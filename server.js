@@ -44,7 +44,7 @@ app.use(express.static(path.join(__dirname, 'static')))
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-app.use(helmet())
+// app.use(helmet())
 app.use(cors({origin: '*', credentials: true}))
 app.use(debugHeadersWtf)
 app.use('*', handle.limit)
