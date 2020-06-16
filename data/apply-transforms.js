@@ -1,14 +1,14 @@
 require('dotenv').config();
 const FP = require('functional-promises');
 const mongoose = require('mongoose')
-const db = process.env.MONGODB_URI || 'mongodb://localhost:27017/rickmorty-api'
+const db = process.env.MONGODB_URI || 'mongodb://heroku_gwqrww4c:qnogdq7t95ikh7qv6sbrbhciu9@ds125862.mlab.com:25862/heroku_gwqrww4c'
 const dbConfig = {
   useNewUrlParser: true,
   useCreateIndex: true
 }
 
 if (process.env.NODE_ENV !== 'production') {
-  dbConfig.dbName = process.env.MONGO_DB_NAME || 'rickmorty-api'
+  dbConfig.dbName = process.env.MONGO_DB_NAME || 'rick-and-morty-free-api'
 }
 
 mongoose.connect(db, dbConfig);

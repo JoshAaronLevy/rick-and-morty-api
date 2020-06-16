@@ -670,7 +670,7 @@ Assuming that [MongoDB](https://docs.mongodb.com/manual/tutorial/manage-mongodb-
 git clone https://github.com/afuh/rick-and-morty-api.git`
 cd rick-and-morty-api
 echo 'API_BASE_URI=http://localhost:8080/api' >> .env
-echo 'MONGODB_URI=mongodb://localhost:27017/rickmorty-api' >> .env
+echo 'MONGODB_URI=mongodb://localhost:27017/rick-and-morty-free-api' >> .env
 npm install
 npm run data
 npm run dev

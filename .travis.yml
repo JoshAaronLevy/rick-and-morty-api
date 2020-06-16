@@ -7,7 +7,7 @@ services:
   - mongodb
 
 before_script:
-  - mongorestore --host=localhost:27017 --db=rickmorty-api --drop ./data
+  - mongorestore --host=localhost:27017 --db=rick-and-morty-free-api --drop ./data
 
 script:
   - npm test

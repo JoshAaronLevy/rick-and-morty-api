@@ -1,5 +1,5 @@
 
-let apiBaseUri = 'https://rickandmortyapi.com/api'
+let apiBaseUri = 'https://rick-and-morty-free-api.herokuapp.com/api/'
 if (process.env.API_BASE_URI || process.env.API_BASE_URL) {
   apiBaseUri = process.env.API_BASE_URI || process.env.API_BASE_URL
 }
@@ -9,7 +9,7 @@ function updateToCurrentApiUrl(url) {
 }
 
 exports.config = {
-  sourceApiBaseUri: `https://rickandmortyapi.com/api`,
+  sourceApiBaseUri: `https://rick-and-morty-free-api.herokuapp.com/api/`,
   apiBaseUri
 }
 exports.message = {
