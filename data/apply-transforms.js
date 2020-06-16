@@ -1,7 +1,7 @@
 require('dotenv').config();
 const FP = require('functional-promises');
 const mongoose = require('mongoose')
-const db = process.env.MONGODB_URI || 'mongodb://heroku_gwqrww4c:qnogdq7t95ikh7qv6sbrbhciu9@ds125862.mlab.com:25862/heroku_gwqrww4c'
+const db = process.env.MONGODB_URI || 'mongodb://localhost:27017/rick-and-morti-free-api'
 const dbConfig = {
   useNewUrlParser: true,
   useCreateIndex: true

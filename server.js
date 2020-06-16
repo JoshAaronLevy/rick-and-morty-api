@@ -17,7 +17,7 @@ const resolvers = require('./graphql/resolvers')
 const handle = require('./handlers')
 const api = require('./routes/api')
 
-const db = process.env.MONGODB_URI || 'mongodb://heroku_gwqrww4c:qnogdq7t95ikh7qv6sbrbhciu9@ds125862.mlab.com:25862/heroku_gwqrww4c'
+const db = process.env.MONGODB_URI || 'mongodb://localhost:27017/rick-and-morty-free-api'
 
 const server = new ApolloServer({
   typeDefs,
@@ -68,7 +68,6 @@ app.listen(PORT, () => console.log('\x1b[34m%s\x1b[0m', `
 ))
 
 module.exports = app
-
 
 function debugHeadersWtf(req, res, next) {
   console.log('Got CORS?', res.getHeaders())
