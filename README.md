@@ -7,7 +7,7 @@
 
 
 > Hey, did you ever want to hold a terry fold?,
->  I got one right here, grab my terry flap.
+> I got one right here, grab my terry flap.
 
 [The Rick and Morty API](https://rickandmortyapi.com) (or ShlaAPI) is a RESTful and GraphQL API based on the television show [Rick and Morty](https://www.adultswim.com/videos/rick-and-morty). You will access to data about hundreds of characters, images, locations and episodes.
 
@@ -539,9 +539,10 @@ There is a total of 31 episodes sorted by id (which is of course the order of th
 ### Get all episodes
 You can access the list of episodes by using the `/episode` endpoint.
 
-```
+```bash
 https://rickandmortyapi.com/api/episode/
 ```
+
 ```js
 {
   "info": {
@@ -592,9 +593,11 @@ https://rickandmortyapi.com/api/episode/28
 
 ### Get multiple episodes
 You can get multiple episodes by adding an array of `ids` as parameter: `/episode/[1,2,3]` or `/episode/1,2,3`
-```
+
+```bash
 https://rickandmortyapi.com/api/episode/10,28
 ```
+
 ```js
 [
   {
@@ -666,7 +669,7 @@ Here you will find a list of helper libraries to use the Rick and Morty API with
 
 Assuming that [MongoDB](https://docs.mongodb.com/manual/tutorial/manage-mongodb-processes/) is running locally.
 
-```
+```bash
 git clone https://github.com/afuh/rick-and-morty-api.git`
 cd rick-and-morty-api
 echo 'API_BASE_URI=http://localhost:8080/api' >> .env
@@ -675,6 +678,7 @@ npm install
 npm run data
 npm run dev
 ```
+
 Use to http://localhost:8080/api to access the API.
 
 ---
